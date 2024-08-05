@@ -1,6 +1,6 @@
 # Frontend Mentor - Expenses chart component solution
 
-This is a solution to the [Expenses chart component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/expenses-chart-component-e7yJBUdjwt). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Expenses chart component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/expenses-chart-component-e7yJBUdjwt). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -11,10 +11,7 @@ This is a solution to the [Expenses chart component challenge on Frontend Mentor
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -26,7 +23,6 @@ Users should be able to:
 - See the current day’s bar highlighted in a different colour to the other bars
 - View the optimal layout for the content depending on their device’s screen size
 - See hover states for all interactive elements on the page
-- **Bonus**: Use the JSON data file provided to dynamically size the bars on the chart
 
 ### Screenshot
 
@@ -52,38 +48,89 @@ Users should be able to:
 
 ### What I learned
 
+#### Creating the barchart with Shadcn
 
+- Shadcn uses [Recharts](https://recharts.org/) under the hood. 
+- the project was created using vite `npm create vite@latest`
+- add Tailwind and its configuration `npm install -D tailwindcss postcss autoprefixer` and then intialise tailwind with `npx tailwindcss init -p`
+- Edit `tsconfig.json` file. Add the baseUrl and paths properties to the compilerOptions section of the tsconfig.json and tsconfig.app.json files 
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+- Edit `tsconfig.app.json` file
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+```js
+{
+  "compilerOptions": {
+    // ...
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+    // ...
+  }
+}
+```
 
-### Continued development
+- Update `vite.config.ts` with the following command `npm i -D @types/node` so that I can import `path` without error
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+```js
+import path from "path"
+import react from "@vitejs/plugin-react"
+import { defineConfig } from "vite"
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+})
 
-### Useful resources
+```
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- Run the CLI. Run the shadcn-ui init command to setup your project: `npx shadcn-ui@latest init`
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- Configure components.json. A few questions will be asked to configure `components.json`
+
+- Run the following command to install chart.tsx `npx shadcn-ui@latest add chart`
+- a [chart tutorial guide](https://ui.shadcn.com/docs/components/chart) is found on this link.
+
+```mermaid
+graph TD
+    A[Main] --> B(Flex Container)
+    B --> C(Balance Card)
+    B --> D(Chart Card)
+    C --> E(Balance Text)
+    C --> F(Circle)
+    D --> G(Chart Container)
+    D --> H(Footer)
+    G --> I(Bar Chart)
+    H --> J(Total Amount)
+    H --> K(Percentage Change)
+
+```
 
 ## Author
 

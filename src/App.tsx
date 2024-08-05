@@ -77,7 +77,7 @@ function App() {
     );
 
     return (
-        <div className="flex flex-col justify-center items-center bg-[hsl(var(--cream))] min-h-screen">
+        <main className="flex flex-col justify-center items-center bg-[hsl(var(--cream))] min-h-screen">
             <div className="max-w-[35.75rem] w-full  p-4">
                 <div className=" bg-[hsl(var(--soft-red))] rounded-[10px] p-5">
                     <div className="flex justify-between">
@@ -148,7 +148,7 @@ function App() {
                     </CardFooter>
                 </Card>
             </div>
-        </div>
+        </main>
     );
 }
 
