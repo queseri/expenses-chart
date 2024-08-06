@@ -11,6 +11,7 @@ This is a solution to the [Expenses chart component challenge on Frontend Mentor
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
+  - [Flow diagram](#flow-diagram)
 - [Author](#author)
 
 ## Overview
@@ -50,10 +51,10 @@ Users should be able to:
 
 #### Creating the barchart with Shadcn
 
-- Shadcn uses [Recharts](https://recharts.org/) under the hood. 
+- Shadcn uses [Recharts](https://recharts.org/) under the hood.
 - the project was created using vite `npm create vite@latest`
 - add Tailwind and its configuration `npm install -D tailwindcss postcss autoprefixer` and then intialise tailwind with `npx tailwindcss init -p`
-- Edit `tsconfig.json` file. Add the baseUrl and paths properties to the compilerOptions section of the tsconfig.json and tsconfig.app.json files 
+- Edit `tsconfig.json` file. Add the baseUrl and paths properties to the compilerOptions section of the tsconfig.json and tsconfig.app.json files
 
 ```js
 {
@@ -117,23 +118,31 @@ export default defineConfig({
 - Run the following command to install chart.tsx `npx shadcn-ui@latest add chart`
 - a [chart tutorial guide](https://ui.shadcn.com/docs/components/chart) is found on this link.
 
+### Flow diagram
+
 ```mermaid
 graph TD
-    A[Main] --> B(Flex Container)
-    B --> C(Balance Card)
+    A[Main] --> B{Flex Container}
+    B --> C(Balance Card Container)
     B --> D(Chart Card)
-    C --> E(Balance Text)
-    C --> F(Circle)
-    D --> G(Chart Container)
-    D --> H(Footer)
-    G --> I(Bar Chart)
-    H --> J(Total Amount)
-    H --> K(Percentage Change)
+    C --> E{Balance Card Inner Red Container}
+    E --> F{Flex content container}
+    E --> G(Decorative circle container)
+    G --> T((Decorative circle))
+    F --> H(Heading text - Balance)
+    F --> I(Content text - amount)
+    D --> J{Chart Card Container}
+    J --> K{Card header}
+    J --> L(Card content)
+    J --> M{Footer Content}
+    K --> N(Card title - Spending...)
+    K --> P(Card Description - sr)
+    L --> Q(Bar Chart)
+    M --> R([Total Amount])
+    M --> S([Percentage Change])
 
 ```
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Frontend Mentor - [ChamuMutezva](https://www.frontendmentor.io/profile/ChamuMutezva)
