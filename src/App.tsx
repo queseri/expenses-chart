@@ -82,10 +82,10 @@ function App() {
                 <div className=" bg-[hsl(var(--soft-red))] rounded-[10px] p-5">
                     <div className="flex justify-between">
                         <div className="flex flex-col justify-center align-middle">
-                            <h3 className="text-[hsl(var(--white))] text-[1rem]">
+                            <h3 className="text-[hsl(var(--white))] text-[1rem] lg:text-[1.5rem]">
                                 My Balance
                             </h3>
-                            <p className="text-[1.5rem] text-[hsl(var(--white))] font-bold">
+                            <p className="text-[1.5rem] lg:text-[2.5rem] text-[hsl(var(--white))] font-bold">
                                 $921.78
                             </p>
                         </div>
@@ -98,7 +98,7 @@ function App() {
             <div className="max-w-[35.75rem] w-full p-4">
                 <Card className="bg-[hsl(var(--very-pale-orange))]">
                     <CardHeader>
-                        <CardTitle className="text-[1.5rem] font-bold text-[hsl(var(--dark-brown))]">
+                        <CardTitle className="text-[1.5rem] lg:text-[2rem] font-bold text-[hsl(var(--dark-brown))]">
                             {" "}
                             Spending - Last 7 days
                         </CardTitle>
@@ -129,16 +129,16 @@ function App() {
                     </CardContent>
                     <CardFooter className="flex-row justify-between items-center gap-2 text-sm">
                         <div className="flex gap-2 font-medium leading-none text-[hsl(var(--medium-brown))]">
-                            <p className="flex flex-col gap-2">
+                            <p className="flex flex-col gap-2 text-[1rem] lg:text-[1.5rem]">
                                 Total this month{" "}
-                                <span className="font-bold text-[hsl(var(--dark-brown))] text-[1.9rem] ">
+                                <span className="font-bold text-[hsl(var(--dark-brown))] text-[2.5rem] lg:text-[3.75rem]">
                                     ${(totalAmount * 3.4).toFixed(2)}
                                 </span>
                             </p>
                             <TrendingUp className="h-4 w-4" />
                         </div>
                         <div className="leading-none text-[1rem]  ">
-                            <p className="flex flex-col text-[hsl(var(--medium-brown))] items-end gap-2">
+                            <p className="flex flex-col text-[hsl(var(--medium-brown))]  text-[1rem] lg:text-[1.5rem] items-end gap-2">
                                 <span className="font-bold text-[hsl(var(--dark-brown))]">
                                     +2.4%
                                 </span>{" "}
