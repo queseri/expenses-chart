@@ -1,5 +1,5 @@
 "use client";
-import { Bar, BarChart, CartesianGrid, Tooltip, XAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, Tooltip, XAxis, YAxis } from "recharts";
 import { TrendingUp } from "lucide-react";
 import {
     ChartConfig,
@@ -120,6 +120,10 @@ function App() {
                                     tickMargin={10}
                                     axisLine={false}
                                     tickFormatter={(value) => value.slice(0, 3)}
+                                />
+                                <YAxis
+                                    tickFormatter={(value) => `$${value}`} // Format Y-axis labels with a dollar sign
+                                    ticks={[0, 20, 40, 60, 80]} // Specify the ticks to show on the Y-axis
                                 />
                                 <Tooltip content={<CustomTooltip />} />
                                 <ChartLegend content={<ChartLegendContent />} />
