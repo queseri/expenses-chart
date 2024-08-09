@@ -14,13 +14,26 @@ const App = () => {
         },
         title: {
             text: "Spending - Last 7 days",
+            align: "center",  
+                   
+            style: {              
+                color: "#000", 
+            },
         },
     };
 
     const [series] = useState([
         {
             name: "amount",
-            data: [17.45, 34.91, 52.36, 31.07, 23.39, 43.28, 25.48],
+            data: [
+                { x: "mon", y: 17.45, fillColor: "hsl(var(--soft-red))" },
+                { x: "tue", y: 34.91, fillColor: "hsl(var(--soft-red))" },
+                { x: "wed", y: 52.36, fillColor: "hsl(var(--cyan))" },
+                { x: "thu", y: 31.07, fillColor: "hsl(var(--soft-red))" },
+                { x: "fri", y: 23.39, fillColor: "hsl(var(--soft-red))" },
+                { x: "sat", y: 43.28, fillColor: "hsl(var(--soft-red))" },
+                { x: "sun", y: 25.48, fillColor: "hsl(var(--soft-red))" },
+            ],
         },
     ]);
 
