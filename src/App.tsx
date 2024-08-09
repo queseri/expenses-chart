@@ -14,10 +14,10 @@ const App = () => {
         },
         title: {
             text: "Spending - Last 7 days",
-            align: "center",  
+           
                    
             style: {              
-                color: "#000", 
+                color: "#000",                  
             },
         },
     };
