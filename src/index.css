@@ -79,6 +79,14 @@
 body {
     background-color: var(--cream);
     font-family: var(--font-family);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#root {
+    width: 100%;
 }
 
 .circle::after {
