@@ -98,7 +98,7 @@ function App() {
             <div className="max-w-[35.75rem] w-full p-4">
                 <Card className="bg-[hsl(var(--very-pale-orange))]">
                     <CardHeader>
-                        <CardTitle className="text-[1.5rem] lg:text-[2rem] font-bold text-[hsl(var(--dark-brown))]">
+                        <CardTitle className="text-[1.5rem] lg:text-[2rem] text-center font-bold text-[hsl(var(--dark-brown))]">
                             {" "}
                             Spending - Last 7 days
                         </CardTitle>
