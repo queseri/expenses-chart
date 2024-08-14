@@ -4,7 +4,6 @@ import { TrendingUp } from "lucide-react";
 
 import { Card, CardFooter } from "@/components/ui/card";
 
-// Define the type for a single data entry
 interface ChartData {
     day: string;
     amount: number;
