@@ -1,22 +1,8 @@
 "use client";
-import { Bar, BarChart, CartesianGrid, Tooltip, XAxis, YAxis } from "recharts";
-import { TrendingUp } from "lucide-react";
-import {
-    ChartConfig,
-    ChartContainer,
-    ChartLegend,
-    ChartLegendContent,
-} from "@/components/ui/chart";
 
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import CustomTooltip from "./components/customToolTip";
+import { TrendingUp } from "lucide-react";
+
+import { Card, CardFooter } from "@/components/ui/card";
 
 // Define the type for a single data entry
 interface ChartData {
@@ -64,12 +50,6 @@ function App() {
         },
     ];
 
-    const chartConfig = {
-        mon: {
-            label: "mon",
-        },
-    } satisfies ChartConfig;
-
     // Reducer function to calculate total amount
     const totalAmount = chartData.reduce(
         (total, item) => total + item.amount,
@@ -97,40 +77,39 @@ function App() {
             </div>
             <div className="max-w-[35.75rem] w-full p-4">
                 <Card className="bg-[hsl(var(--very-pale-orange))]">
-                    <CardHeader>
-                        <CardTitle className="text-[1.5rem] lg:text-[2rem] text-center font-bold text-[hsl(var(--dark-brown))]">
-                            {" "}
-                            Spending - Last 7 days
-                        </CardTitle>
-                        <CardDescription className="sr-only">
-                            Amount spent for the last 7 days from Monday to
-                            Sunday
-                        </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                        <ChartContainer
-                            config={chartConfig}
-                            className="min-h-[200px] w-full"
-                        >
-                            <BarChart accessibilityLayer data={chartData}>
-                                <CartesianGrid vertical={false} />
-                                <XAxis
-                                    dataKey="day"
-                                    tickLine={false}
-                                    tickMargin={10}
-                                    axisLine={false}
-                                    tickFormatter={(value) => value.slice(0, 3)}
-                                />
-                                <YAxis
-                                    tickFormatter={(value) => `$${value}`} // Format Y-axis labels with a dollar sign
-                                    ticks={[0, 20, 40, 60, 80]} // Specify the ticks to show on the Y-axis
-                                />
-                                <Tooltip content={<CustomTooltip />} />
-                                <ChartLegend content={<ChartLegendContent />} />
-                                <Bar dataKey="amount" radius={4} />
-                            </BarChart>
-                        </ChartContainer>
-                    </CardContent>
+                    <h3 className="text-[1.5rem] lg:text-[2rem] text-center gap-2 font-bold text-[hsl(var(--dark-brown))]">
+                        {" "}
+                        Spending - Last 7 days
+                    </h3>
+
+                    <div className="flex gap-2 justify-evenly items-end my-12">
+                        {chartData.map((item, index) => (
+                            <button
+                                type="button"
+                                key={item.day}
+                                className={`flex-1 max-w-[50px] rounded-md hover:cursor-pointer ${
+                                    index === 2
+                                        ? "bg-[hsl(var(--cyan))]"
+                                        : "bg-[hsl(var(--soft-red))]"
+                                } hover:opacity-75 focus:opacity-75  relative group`}
+                                style={{ height: `${item.amount / 5}rem` }}
+                            >
+                                <span className="absolute -bottom-8 w-full left-0 text-center">
+                                    {item.day}{" "}
+                                </span>
+                                <span
+                                    data-content={`$${item.amount}`}
+                                    className={`before:content-[attr(data-content)] before:absolute before:left-1/2 before:-translate-x-1/2
+                                         before:-top-12 before:h-[2rem] before:bg-[hsl(var(--dark-brown))] before:min-w-full 
+                                         before:text-[hsl(var(--white))] before:p-2 before:rounded-sm before:flex before:justify-center
+                                          before:items-center before:opacity-0 before:transition-opacity before:duration-300
+                                           group-hover:before:opacity-100 group-focus:before:opacity-100`}
+                                >
+                                    {/* Empty span to apply the pseudo-element styles */}
+                                </span>
+                            </button>
+                        ))}
+                    </div>
                     <CardFooter className="flex-row justify-between items-center gap-2 text-sm">
                         <div className="flex gap-2 font-medium leading-none text-[hsl(var(--medium-brown))]">
                             <p className="flex flex-col gap-2 text-[1rem] lg:text-[1.5rem]">
