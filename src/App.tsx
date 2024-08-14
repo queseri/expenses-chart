@@ -75,8 +75,8 @@ function App() {
                 </div>
             </div>
             <div className="max-w-[35.75rem] w-full p-4">
-                <Card className="bg-[hsl(var(--very-pale-orange))]">
-                    <h3 className="text-[1.5rem] lg:text-[2rem] text-center gap-2 font-bold text-[hsl(var(--dark-brown))]">
+                <Card className="bg-[hsl(var(--very-pale-orange))] p-4 sm:p-10">
+                    <h3 className="text-[1.5rem] lg:text-[2rem] text-left gap-2 font-bold text-[hsl(var(--dark-brown))]">
                         {" "}
                         Spending - Last 7 days
                     </h3>
@@ -91,15 +91,15 @@ function App() {
                                         ? "bg-[hsl(var(--cyan))]"
                                         : "bg-[hsl(var(--soft-red))]"
                                 } hover:opacity-75 focus:opacity-75  relative group`}
-                                style={{ height: `${item.amount / 5}rem` }}
+                                style={{ height: `${item.amount / 5.5}rem` }}
                             >
-                                <span className="absolute -bottom-8 w-full left-0 text-center">
+                                <span className="absolute -bottom-8 w-full left-0 text-center text-[hsl(var(--medium-brown))]">
                                     {item.day}{" "}
                                 </span>
                                 <span
                                     data-content={`$${item.amount}`}
                                     className={`before:content-[attr(data-content)] before:absolute before:left-1/2 before:-translate-x-1/2
-                                         before:-top-12 before:h-[2rem] before:bg-[hsl(var(--dark-brown))] before:min-w-full 
+                                         before:-top-12 before:h-[2rem] before:bg-[hsl(var(--dark-brown))] before:min-w-full before:font-bold
                                          before:text-[hsl(var(--white))] before:p-2 before:rounded-sm before:flex before:justify-center
                                           before:items-center before:opacity-0 before:transition-opacity before:duration-300
                                            group-hover:before:opacity-100 group-focus:before:opacity-100`}
@@ -109,18 +109,19 @@ function App() {
                             </button>
                         ))}
                     </div>
-                    <CardFooter className="flex-row justify-between items-center gap-2 text-sm">
+                    <hr className="my-10" />
+                    <CardFooter className="flex-row justify-between items-center gap-2 text-sm px-0">
                         <div className="flex gap-2 font-medium leading-none text-[hsl(var(--medium-brown))]">
-                            <p className="flex flex-col gap-2 text-[1rem] lg:text-[1.5rem]">
+                            <p className="flex flex-col gap-2 text-[1rem] lg:text-[1.25rem]">
                                 Total this month{" "}
-                                <span className="font-bold text-[hsl(var(--dark-brown))] text-[2.5rem] lg:text-[3.75rem]">
+                                <span className="font-bold text-[hsl(var(--dark-brown))] text-[2.5rem] lg:text-[3rem]">
                                     ${(totalAmount * 3.4).toFixed(2)}
                                 </span>
                             </p>
                             <TrendingUp className="h-4 w-4" />
                         </div>
                         <div className="leading-none text-[1rem]  ">
-                            <p className="flex flex-col text-[hsl(var(--medium-brown))]  text-[1rem] lg:text-[1.5rem] items-end gap-2">
+                            <p className="flex flex-col text-[hsl(var(--medium-brown))]  text-[1rem] lg:text-[1.25rem] items-end gap-2">
                                 <span className="font-bold text-[hsl(var(--dark-brown))]">
                                     +2.4%
                                 </span>{" "}
