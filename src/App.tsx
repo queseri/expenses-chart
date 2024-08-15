@@ -6,6 +6,7 @@ import { Card, CardFooter } from "@/components/ui/card";
 
 interface ChartData {
     day: string;
+    fullname: string;
     amount: number;
     fill: string;
 }
@@ -14,36 +15,43 @@ function App() {
     const chartData: ChartData[] = [
         {
             day: "mon",
+            fullname: "monday",
             amount: 17.45,
             fill: "hsl(var(--soft-red))",
         },
         {
             day: "tue",
+            fullname: "tuesday",
             amount: 34.91,
             fill: "hsl(var(--soft-red))",
         },
         {
             day: "wed",
+            fullname: "wednesday",
             amount: 52.36,
             fill: "hsl(var(--cyan))",
         },
         {
             day: "thu",
+            fullname: "thursday",
             amount: 31.07,
             fill: "hsl(var(--soft-red))",
         },
         {
             day: "fri",
+            fullname: "friday",
             amount: 23.39,
             fill: "hsl(var(--soft-red))",
         },
         {
             day: "sat",
+            fullname: "saturday",
             amount: 43.28,
             fill: "hsl(var(--soft-red))",
         },
         {
             day: "sun",
+            fullname: "sunday",
             amount: 25.48,
             fill: "hsl(var(--soft-red))",
         },
@@ -93,7 +101,10 @@ function App() {
                                 } hover:opacity-75 focus:opacity-75  relative group`}
                                 style={{ height: `${item.amount / 5.5}rem` }}
                             >
-                                <span className="absolute -bottom-8 w-full left-0 text-center text-[hsl(var(--medium-brown))]">
+                                <span
+                                    aria-label={item.fullname}
+                                    className="absolute -bottom-8 w-full left-0 text-center text-[hsl(var(--medium-brown))]"
+                                >
                                     {item.day}{" "}
                                 </span>
                                 <span
@@ -109,7 +120,7 @@ function App() {
                             </button>
                         ))}
                     </div>
-                    <hr className="my-10" />
+                    <hr className="mt-[4.5rem] mb-8" />
                     <CardFooter className="flex-row justify-between items-center gap-2 text-sm px-0">
                         <div className="flex gap-2 font-medium leading-none text-[hsl(var(--medium-brown))]">
                             <p className="flex flex-col gap-2 text-[1rem] lg:text-[1.25rem]">
