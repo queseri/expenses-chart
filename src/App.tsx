@@ -88,6 +88,14 @@ function App() {
                         {" "}
                         Spending - Last 7 days
                     </h3>
+                    <p className="sr-only">
+                        The graphical presentation of my expenses from Monday to
+                        Sunday, where the least expenditure is on Monday and
+                        then gradually increases to reach the peek of the week
+                        on Wednesday. Then they is a sudden decline again on
+                        Thursday and Friday but Saturday will see the second
+                        highest increase before another slow down on Sunday.
+                    </p>
 
                     <div className="flex gap-2 justify-evenly items-end my-12">
                         {chartData.map((item, index) => (
