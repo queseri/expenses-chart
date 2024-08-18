@@ -64,7 +64,7 @@ function App() {
     );
 
     return (
-        <main className="max-w-[33.75rem] w-full flex flex-col gap-4 justify-center items-center">
+        <main className="max-w-[33.75rem] w-full flex flex-col gap-4 justify-center items-center lg:my-[182px]">
             <div className="w-full">
                 <div className=" bg-[hsl(var(--soft-red))] rounded-[10px] p-8">
                     <div className="flex justify-between">
