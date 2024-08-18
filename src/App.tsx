@@ -64,9 +64,9 @@ function App() {
     );
 
     return (
-        <main className="flex flex-col justify-center items-center bg-[hsl(var(--cream))] min-h-screen">
-            <div className="max-w-[35.75rem] w-full  p-4">
-                <div className=" bg-[hsl(var(--soft-red))] rounded-[10px] p-5">
+        <main className="max-w-[33.75rem] w-full flex flex-col gap-4 justify-center items-center">
+            <div className="w-full">
+                <div className=" bg-[hsl(var(--soft-red))] rounded-[10px] p-8">
                     <div className="flex justify-between">
                         <div className="flex flex-col justify-center align-middle">
                             <h3 className="text-[hsl(var(--white))] text-[1rem] lg:text-[1.5rem]">
@@ -82,7 +82,7 @@ function App() {
                     </div>
                 </div>
             </div>
-            <div className="max-w-[35.75rem] w-full p-4">
+            <div className="w-full">
                 <Card className="bg-[hsl(var(--very-pale-orange))] p-4 sm:p-10">
                     <h3 className="text-[1.5rem] lg:text-[2rem] text-left gap-2 font-bold text-[hsl(var(--dark-brown))]">
                         {" "}
